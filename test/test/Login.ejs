@@ -1,0 +1,150 @@
+<!-- 회원가입 페이지 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 회원가입 폼</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<style>
+    /* 회원가입 페이지 스타일 */
+
+/* Google web font CDN*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
+*{
+    box-sizing: border-box; /*전체에 박스사이징*/
+    outline: none; /*focus 했을때 테두리 나오게 */
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:14px;
+    background-color: #F1F8E9;
+    /* 전체 배경 색 */
+    line-height: 1.5em;
+    color : #222;
+    /* 전체 글씨 색 */
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #222;
+}
+
+/*member sign in*/
+.member{
+    width: 600px;
+    /* border: 1px solid #000; */
+    margin: auto; /*중앙 정렬*/
+    margin-bottom: 20px;
+}
+.backarea{
+    border-radius: 15px;
+    background-color: white;
+    padding: 60px;
+}
+
+.member .logo{
+    /*로고는 이미지라 인라인 블록이니까 마진 오토 안됨 블록요소만 됨 */
+    width: 100%; /* 부모영역을 상속 */
+    display: block;
+    margin :50px auto;
+    /* 한줄텍스트인 경우만 height와 line-height가 같으면 세로 가운데 처리 */
+    text-align: center; 
+}
+
+.member .field{
+    margin :5px 0; /*상하로 좀 띄워주기*/
+}
+
+.member b{
+    /* border: 1px solid #000; */
+    display: block; /*수직 정렬하기 */
+    margin-bottom: 5px;
+}
+
+/*input 중 radio 는 width 가 100%면 안되니까 */
+.member input:not(input[type=radio]),.member select{
+    border: 1px solid #dadada;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.backarea ul{
+    width: 100%;
+    text-align: right; /* 글자를 오른쪽으로 처리 */
+}
+.backarea li{
+    display: inline-block;
+    height: 12px; line-height: 12px;
+}
+.backarea li:last-child{
+    padding-left: 10px; /* 테두리 안쪽 여백 */
+}
+.backarea a{
+    /* 글자관련은 보통 최종태그에 줘야 적용 */
+    color: #333; font-size: 12px;
+}
+
+li{ list-style: none; } /* 기호나 번호를 제거 */
+a{ text-decoration: none; } /* 링크텍스트에 밑줄없앰 */
+button{ cursor: pointer; } /* 모든 버튼에 마우스손모양 처리 */
+
+.backarea button{
+    border-radius: 20px;
+    display: block;
+    width: 220px; height: 50px;
+    margin: 0 auto; /* 블록요소가 부모 영역에서 가운데 오기 */
+    border: none;
+    background-color: #33691E;
+    color: #fff; font-size: 14px; font-weight: bold;
+}
+
+
+.member input[type=submit]{
+/* background-color: #2db400; */
+border-radius: 20px;
+background-color: #33691E;
+/* 버튼색!!! */
+color:#fff
+
+}
+
+@media (max-width:768px) {
+    .member{
+        width: 100%;
+    }
+}
+
+</style>
+
+<body>
+
+    <div class="member">
+        <!-- 1. 로고 -->
+        <h1 class="logo" style="text-align: center;">POTATO</h1>
+        <div class = "backarea">
+            <form action="/logined" method="post">
+        <div class="field">
+            <b>아이디</b>
+            <span class="placehold-text"><input  class="login" type="text" name="custid" id="loginid" placeholder="아이디를 입력해 주세요"></span>
+        </div>
+        <div class="field">
+            <b>비밀번호</b>
+            <input class="login" type="password" name="custpw" placeholder="비밀번호를 입력해 주세요">
+            <ul>
+                <li><a href="/gosignup">회원가입</a></li>
+            </ul>
+        </div>
+        <input class="btn" type="submit" value = "로그인"></input>
+    </form>
+    </div>
+    </div>
+
+</body>
+</html>

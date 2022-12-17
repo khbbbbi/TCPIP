@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <% for(var i = 0; i < posts.length; i++) { %>
+        <p>
+            <h1>
+                <%= posts[i].글번호 %>. <%= posts[i].제목 %>
+            </h1>
+            <%= posts[i].내용 %>
+            <br>
+            <button id="target">target button</button>
+            <hr>
+        </p>
+        <%= %>
+    <% } %>
+</body>
+</html>

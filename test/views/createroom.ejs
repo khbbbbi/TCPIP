@@ -1,0 +1,483 @@
+<!-- 방만들기 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar exercise</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/77e29b57dd.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- defer란 무엇인가?!!!! -->
+    <base href="/">
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+/* 만들어놓고 필요한 곳에서 쓸 수 있다 */
+:root {
+    --text-color: #eee5e9;
+    /* --background-color: #567c32; */
+    --background-color: #33691E;
+    --accent-color: #689F38;
+  }
+  
+  /* 폰트는 최상위 컴포넌트에 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* .body {
+    margin: 0;
+  } */
+  
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  
+  .navbar {
+    border-radius: 10px;
+    position:sticky;
+    top:0;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 22px 12px;
+    background-color: var(--background-color);
+    width: 100%;
+  }
+  
+  .navbar-logo {
+    font-size: 30px;
+    /* color: var(--text-color); */
+  }
+  
+  .navbar-logo i {
+    color: var(--accent-color);
+    margin-left: 80px;
+  }
+  
+  /* menu */
+  
+  .navbar-menu {
+    display: flex;
+    padding-left: 0px;
+    list-style: none;
+    font-size: 24px;
+    font-family: "Black Han Sans", sans-serif;
+  }
+  .navbar-menu li {
+    padding: 15px 80px; /*내정보 삭제하고 수정할 부분*/
+    word-spacing: 50px;
+  }
+  
+  .navbar-menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 5px;
+  }
+  
+  /* icon */
+  .navbar-right {
+    justify-content: flex-end;
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    font-size: 12px;
+    color: var(--text-color);
+  }
+  
+  .navbar-right li {
+    font-size: larger;
+    padding: 8px 12px;
+  }
+  .link_text:hover{
+    text-decoration: underline;
+  }
+  .navbar-more {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 24px;
+    }
+  
+    .navbar-menu {
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+    }
+    ￼ .navbar-menu a {
+      display: block;
+    }
+  
+    .navbar-right {
+      display: none;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .navbar-more {
+      display: block;
+    }
+  
+    .navbar-menu.active,
+    .navbar-icon.active {
+      display: flex;
+    }
+
+}
+
+section {
+  font-family: 'Noto Sans KR', sans-serif;
+  padding : 60px;
+  background-color: f5f6f7;	 
+  float:left;
+  width:100%;
+  background-color: #F1F8E9;
+}
+
+article{
+  border-radius: 40px;
+  margin-top: 10px;
+  background-color: #AED581;
+  width: 800px;
+  margin: auto;
+  padding: 50px;
+}
+table{
+    width: 600px;
+    height: 300px;
+    padding: 20px;
+    border-spacing: 10px;
+    /* border:1px solid #444444; */
+    font-size: 20;
+    justify-content: center;
+}
+th, td {
+    /* border: 1px solid #444444; */
+    height: 40px;
+}
+.container {
+	  display: flex;
+    justify-content: center;
+}
+.item:nth-child(2){
+    margin: 10px;
+}
+
+.gesimul{
+    padding: 20px;
+}
+.enterroom{
+    width: 130px;
+    height: 100%;
+}
+.item input[type=button],
+.submit{
+  background-color: #33691E;
+  color:#fff;
+}
+.submit,
+.reset{
+  border-radius: 20px;
+  display: block;
+  width: 220px;
+  height: 40px;
+  border: none;
+  font-size: 14px; 
+}
+
+/* 푸터 */
+footer {
+  border-top: 1px solid lightgray;
+  padding: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: black; 
+  font-size: 12px;
+  clear: both;
+  position: relative;
+  width: 100%;
+}
+.notice_box {
+  flex: 1;
+  display: flex;
+  justify-content: space-between; /* 양끝 정렬 */
+  align-items: center;
+  border-bottom: 1px solid #f1f3f6;
+}
+.notice_box a {
+  font-weight: bold;
+  color: black;
+}
+.aside_box {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f3f6;
+}
+.area_user {
+  flex: 4;
+  line-height: 2em; /* 줄간격 */
+}
+.area_user_row {
+  display: flex;
+}
+.area_user_row span {
+  flex: 1;
+}
+.area_user_row ul {
+  flex: 6;
+}
+.aur_title {
+  font-size: 13px;
+  font-weight: bold;
+}
+.area_user_row ul > li {
+  display: inline-block; /* li 수평정렬하는 방법 */
+  margin-left: 8px;
+}
+.area_col {
+  flex: 1;
+  display: flex;
+}
+.area_col .ac_content {
+  line-height: 20px;
+}
+.area_col .ac_img {
+  width: 60px;
+  height: 60px;
+}
+.bottom_box {
+  flex: 3;
+  padding-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+.bottom_box ul > li {
+  display: inline-block; /* 수평정렬 */
+  margin-left: 8px;
+}
+.bottom_box ul > li:last-child { /* 마지막 li요소 (Naver Corp.) 굵게 */
+  font-weight: bold;
+}
+/* 재사용 클래스 */
+.color_naver {
+  color: #03cf5d;
+}
+.text_bold-13 {
+  font-weight: bold;
+  font-size: 13px;
+}
+  </style>
+    <script>
+      //비밀방체크 시 텍스트 활성화
+      function is_checked(checkbox) {
+    
+        // 1. 텍스트 박스 element 찾기
+          const textbox_elem = document.getElementById('secret_text');
+    
+        // 2-1. 체크박스 선택여부 체크
+        // 2-2. 체크박스 선택여부에 따라 텍스트박스 활성화/비활성화
+          textbox_elem.disabled = checkbox.checked ? false : true;
+    
+        // 3. 텍스트박스 활성화/비활성화 여부에 따라
+        // - 텍스트박스가 비활성화 된 경우 : 텍스트박스 초기화
+        // - 텍스트박스가 활성화 된 경우 : 포커스 이동
+          if(textbox_elem.disabled) {
+            textbox_elem.value = null;
+          }else {
+            textbox_elem.focus();
+          }
+        }
+      
+      function emtycheck(){
+        //비밀번호 체크박스가 체크돼있고 비밀번호 작성란이 빈칸이면 빈항목으로 취급ㅇㅇ
+        if((document.getElementById("text_group").value == "")||(document.getElementById("hanjulsoge").value == "")||
+        ((document.getElementById('secret_checkbox').checked)&&(document.getElementById('secret_text').value == ""))){
+              alert('모든 항목을 기입하세요.');
+              document.gogo.action = "/Create";
+              document.gogo.submit();
+          }else{
+              alert( "스터디그룹이 생성되었습니다.");
+              document.gogo.action = "/gocreate";
+              document.gogo.submit();
+          }
+      }
+      function reset(){
+        alert( "작성한 내용은 저장되지 않습니다.");
+          document.gogo.action = "/Gesipan";
+          document.gogo.submit();
+
+      }
+  
+      function namelengthcheck(){
+        var textgroup = document.getElementById('text_group').value;
+  
+          if(textgroup.length < 2 || textgroup.length>10){
+              window.alert('그룹명은 2글자 이상, 10글자 이하만 이용 가능합니다.');
+              document.getElementById('text_group').value='';
+              document.getElementById("text_group").focus();
+          }
+      }
+  
+      function sogelengthcheck(){
+          var textsoge = document.getElementById('hanjulsoge').value;
+  
+          if(textsoge.length < 6 || textsoge.length>20){
+              window.alert('한줄소개는 6글자 이상, 20글자 이하만 이용 가능합니다.');
+              document.getElementById('hanjulsoge').value='';
+              document.getElementById("hanjulsoge").focus();
+          }
+      }
+  
+    </script>
+  <body>    
+    <!-- container -->
+    <nav class="navbar">
+      <!-- logo -->
+      <div class="navbar-logo">
+        <!-- <i class="fas fa-frog"></i> -->
+        <i class="far fa-lemon"></i>
+        <!-- <div class="navbar-logo-name">FrogCoding</div> -->
+        <a href="/main">POTATO</a>
+      </div>
+      <!-- menu -->
+      <ul class="navbar-menu">
+        <li><a href="/Gesipan">스터디그룹</a></li>
+        <li><a href="/Create">방만들기</a></li>
+        <li><a href="/myroom">내가만든방</a></li>
+      </ul>
+      <!-- 이름, 로그아웃, 장바구니 -->
+      <ul class="navbar-right">
+        <% myinfo.forEach(function (value) { %>
+          <li><%= value.custname %>님</li>
+          <% }); %>
+          <li><a href="/logout" class="link_text">로그아웃</a></li>
+      </ul>
+      <a href="#" class="navbar-more">
+      <i class="fas fa-bars"></i></a>
+    </nav>
+	</div>
+    <div>
+    <!-- 메인 -->
+    <section>
+    <form action = "/gocreate" method = "post" name = "gogo">
+    <p style = "text-align:center; font-size: 35px;"><b>방만들기</b></p>
+    <div class = "gesimul">
+    <article class = "container">
+        <div class = "item">
+        <table>
+            <tr>
+                <td>그룹명</td>
+                <td><input name = "roomtitle" type = "text" id = "text_group" style="width:100%; height: 80%; padding:10px;" onchange="namelengthcheck()"
+                  placeholder="10자 이내로 작성하시오"></td>
+            </tr>
+            <tr>
+                <td><input name = "roomcheck" type = "checkbox" id = 'secret_checkbox' onclick = "is_checked(this)">비밀방</td>
+                <!-- 비밀번호는 숫자만 입력 가능하도록 -->
+                <td><input name = "spw" type="text" id="secret_text" style="width:40%; height: 80%;" onkeyup = "this.value = this.value.replace(/[^0-9]/g, '')"
+                 disabled /></td>
+            </tr>
+            <tr>
+                <td>카테고리</td>
+                <td>
+                  <select name = "roomstyle" style="width:30%; height: 80%;" value = "대학생">
+                    <option>대학생</option>
+                    <option>직장인</option>
+                  </select>
+                </td>
+            </tr>
+            <tr>
+                <td>한줄소개</td>
+                <td><textarea name = "roomcon" rows = "7" style="width:100%; padding:10px;" id = "hanjulsoge" onchange="sogelengthcheck()" 
+                  placeholder="20자 이내로 작성하시오"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <% myinfo.forEach(function (value) { %>
+              <input type = "hidden" name = "custid" value = "<%= value.custid %>">
+              <% }); %>
+            <tr >
+              
+                <td colspan="2" >
+                  <input type="submit" class="submit" style="width:100%; margin: 10px;" value="가입하기" onclick="emtycheck()">
+                  <input type="submit" class="reset" style="width:100%; margin: 10px;" value="취소" onclick="reset()">
+                </td>
+            </tr>
+          </table>
+          </div>
+    </article>
+</div>
+</form>
+  </section>
+</div>
+  <!--풋터-->
+    <footer>
+      <div class="notice_box">
+        <p>공지사항</p>
+        <p>서비스 전체보기></p>
+      </div>
+      <div class="aside_box">
+        <div class="area_user">
+          <div class="area_user_row">
+            <span class="text_bold-13">Creators</span>
+            <ul>
+              <li><p>크리에이터</p></li>
+              <li><p>스몰비즈니스</p></li>
+            </ul>
+          </div>
+          <div class="area_user_row">
+            <span class="text_bold-13">Partners</span>
+            <ul>
+              <li><p>비즈니스 광고</p></li>
+              <li><p>스토어 개설</p></li>
+              <li><p>지역업체 등록</p></li>
+            </ul>
+          </div>
+          <div class="area_user_row">
+            <span class="text_bold-13">Developers</span>
+            <ul>
+              <li><p>굿잡 개발자센터</p></li>
+              <li><p>오픈API</p></li>
+              <li><p>오픈소스</p></li>
+              <li><p>굿잡 D2</p></li>
+              <li><p>굿잡 D2SF</p></li>
+              <li><p>굿잡 랩스</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="bottom_box">
+        <ul>
+          <li><p>회사소개</p></li>
+          <li><p>인재채용</a></li>
+          <li><p>제휴제안</a></li>
+          <li><p>이용약관</a></li>
+          <li><p>개인정보처리방침</a></li>
+          <li><p>청소년보호정책</p></li>
+          <li><p>굿잡 정책</p></li>
+          <li><p>고객센터</p></li>
+          <li><p>&copy; 굿잡 Corp.</p></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

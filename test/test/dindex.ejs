@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>User list</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>custid</th>
+            <th>custpw</th>
+            <th>custname</th>
+            <th>birth</th>
+            <th>email</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <% users.forEach(function (value) { %>
+        <tr>
+            <td><%= value.custid %></td>
+            <td><%= value.custpw %></td>
+            <td><%= value.custname %></td>
+            <td><%= value.birth %></td>
+            <td><%= value.email %></td>
+            <td><a href="/edit/<%= value.id %>">수정</a></td>
+            <td><a href="/delete/<%= value.id %>">삭제</a></td>
+        </tr>
+        <% }); %>
+    </table>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar exercise</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/77e29b57dd.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- defer란 무엇인가?!!!! -->
+    <!-- <script src="hanbi.js" defer></script> -->
+    <base href="/">
+  </head>
+  <script>
+    function deleteInfo(){
+        if (confirm('정말 탈퇴하시겠습니까?')) {
+        	// 네!
+            alert('탈퇴가 처리되었습니다.')
+        	location.href="Login.html";
+        } else {
+        	//아니오ㅡ.ㅡ
+        	location.href="#";
+        }
+	}
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
+/* 만들어놓고 필요한 곳에서 쓸 수 있다 */
+:root {
+    --text-color: #eee5e9;
+    /* --background-color: #567c32; */
+    --background-color: #33691E;
+    --accent-color: #689F38;
+}
+
+  /* 폰트는 최상위 컴포넌트에 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .body {
+    margin: 0;
+  } */
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbar {
+    border-radius: 10px;
+    position:sticky;
+    top:0;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 22px 12px;
+    background-color: var(--background-color);
+    width: 100%;
+}
+
+.navbar-logo {
+    font-size: 30px;
+    /* color: var(--text-color); */
+}
+
+.navbar-logo img {
+    color: var(--accent-color);
+    margin-left: 80px;
+    
+}
+
+  /* menu */
+
+.navbar-menu {
+    display: flex;
+    padding-left: 0px;
+    list-style: none;
+    font-size: 24px;
+    font-family: "Black Han Sans", sans-serif;
+}
+.navbar-menu li {
+    padding: 15px 80px;
+    word-spacing: 50px;
+}
+
+.navbar-menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+  /* icon */
+.navbar-right {
+    justify-content: flex-end;
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+.navbar-right li {
+    font-size: larger;
+    padding: 8px 12px;
+}
+.link_text:hover{
+    text-decoration: underline;
+}
+.navbar-more {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color);
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    ￼ .navbar-menu a {
+        display: block;
+    }
+
+    .navbar-right {
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar-more {
+        display: block;
+    }
+
+    .navbar-menu.active,
+    .navbar-icon.active {
+        display: flex;
+    }
+
+}
+
+section {
+    font-family: 'Noto Sans KR', sans-serif;
+    padding : 20px;
+    float:left;
+    width: 100%;
+    background-color: #F1F8E9;
+}
+
+article {
+    display: flex;
+}
+.container{
+    padding: 100px;
+    padding-top: 50px;
+    width: 100%;
+}
+.Jemoc{
+    text-align: center; 
+    font-size: 20px; 
+    margin: 10px;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+/* 내정보,내가속한방 */
+.area1{
+    width: 40%;
+    display: grid;
+}
+/* 내정보 */
+.myinfo{
+    border-radius: 40px;
+    background-color: #AED581;
+    margin: 10px;
+    padding: 40px;
+    border-radius: 15px;
+
+}
+.myinfo_in{
+    background-color: #eee5e9;
+    height: 230px;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+/* 내가속한방 */
+.myroom{
+    border-radius: 40px;
+    background-color: #AED581;
+    margin: 10px;
+    padding: 40px;
+    border-radius: 15px;
+}
+.myroom_in{
+    background-color: #eee5e9;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 15px;
+    margin-top: 50px;
+    padding: 30px;
+    display: grid;
+    gap: 10px;
+    border-radius: 15px;
+    height: 430px;
+}
+.roomin{
+    background-color: #edf4dbf3;
+    /* background-color: #d8e39d; */
+    word-break: break-all;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+}
+.roomin_table{
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+}
+/* 내가 속한방 한줄소개 */
+.soge{
+    height: 60px;
+    float: left;
+}
+.area2{
+    width: 60%;
+    /* background-color: aqua; */
+}
+
+/* 모든방 */
+.gesipan{
+    border-radius: 40px;
+    background-color: #AED581;
+    margin: 10px;
+    padding: 40px;
+    width: 100%;
+    border-radius: 15px;
+}
+.gesipan_in{
+    background-color: #eee5e9;
+    margin-top: 50px;
+    padding: 30px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    border-radius: 15px;
+}
+.room{
+    background-color: #edf6ebf3;
+    word-break: break-all;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+/* 푸터 */
+footer {
+    border-top: 1px solid lightgray;
+    padding: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    color: black; 
+    font-size: 12px;
+    clear: both;
+}
+.notice_box {
+    flex: 1;
+    display: flex;
+    justify-content: space-between; /* 양끝 정렬 */
+    align-items: center;
+    border-bottom: 1px solid #f1f3f6;
+}
+.notice_box a {
+    font-weight: bold;
+    color: black;
+}
+.aside_box {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f3f6;
+}
+.area_user {
+    flex: 4;
+    line-height: 2em; /* 줄간격 */
+}
+.area_user_row {
+    display: flex;
+}
+.area_user_row span {
+    flex: 1;
+}
+.area_user_row ul {
+    flex: 6;
+}
+.aur_title {
+    font-size: 13px;
+    font-weight: bold;
+}
+.area_user_row ul > li {
+    display: inline-block; /* li 수평정렬하는 방법 */
+    margin-left: 8px;
+}
+.area_col {
+    flex: 1;
+    display: flex;
+}
+.area_col .ac_content {
+    line-height: 20px;
+}
+.area_col .ac_img {
+    width: 60px;
+    height: 60px;
+}
+.bottom_box {
+    flex: 3;
+    padding-top: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+.bottom_box ul > li {
+    display: inline-block; /* 수평정렬 */
+    margin-left: 8px;
+}
+.bottom_box ul > li:last-child { /* 마지막 li요소 (Naver Corp.) 굵게 */
+    font-weight: bold;
+}
+/* 재사용 클래스 */
+.color_naver {
+    color: #03cf5d;
+}
+.text_bold-13 {
+    font-weight: bold;
+    font-size: 13px;
+}
+</style>
+
+
+
+  <body>
+    <!-- container -->
+    <nav class="navbar">
+      <!-- logo -->
+      <div class="navbar-logo">
+        <!-- <i class="fas fa-frog"></i> -->
+        <i class="far fa-lemon"></i>
+        <!-- <div class="navbar-logo-name">FrogCoding</div> -->
+        <a href="/main">POTATO</a>
+      </div>
+      <!-- menu -->
+      <ul class="navbar-menu">
+        <li><a href="/Gesipan">스터디그룹</a></li>
+        <li><a href="/Create">방만들기</a></li>
+        <li><a href="/myroom">내가만든방</a></li>
+      </ul>
+      <!-- 이름, 로그아웃, 장바구니 -->
+      <ul class="navbar-right">
+        <% myinfo.forEach(function (value) { %>
+        <li><%= value.custname %>님</li>
+        <li><a href="/logout" class="link_text">로그아웃</a></li>
+      </ul>
+      <a href="#" class="navbar-more">
+      <i class="fas fa-bars"></i></a>
+    </nav>
+	</div>
+    
+  <section>
+    <article class="container">
+        <article class = "area1">
+            <div class = "myinfo">
+                <p style="text-align: right;"><a href = "/deleteinfo/<%= value.custid %>">탈퇴하기</a></p>
+                <% }); %>
+                <P class = "Jemoc">내정보</P>
+                <% myinfo.forEach(function (value) { %>
+                <div class = "myinfo_in">
+                    <table style="padding: 10px;" height = "230">
+                        <tr>
+                            <td width = "40%">아이디</td>
+                            <td><%= value.custid %></td>
+                        </tr>
+                        <tr>
+                            
+                            <td>닉네임</td>
+                            <td><%= value.custname %></td>
+                        </tr>
+                        <tr>
+                            <td>생년월일</td>
+                            <td><%= value.birth %></td>
+                        </tr>
+                        <tr>
+                            <td>이메일</td>
+                            <td><%= value.email %></td>
+                        </tr>
+                    </table>
+                </div>
+                <% }); %>
+            </div>
+            <div class = "myroom">
+                <p style="text-align: right;"><a href = "/myroom">자세히보기&nbsp;></a></p>
+                <P class = "Jemoc">내가만든방</P>
+                <div class = "myroom_in">
+                    <% mroom.forEach(function (value) { %>
+                        <div class = "roomin">
+                            <table class = "roomin_table">
+                                <tr>
+                                <td colspan="2">
+                                    <% if(value.roomcheck == "on"){%><img src = "img/lock.png" width="17" height="17"><%}
+                                        else{%><img src = "img/unlock.png" width="17" height="17"><%} %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><%= value.roomtitle %></td>
+                            </tr>
+                            <tr>
+                                <td width = "100px">2/3명</td>
+                                    <td><img src = "img/crown.png" width="15" height="15">&nbsp;<%= value.custid %></td>
+                            </tr>
+                            <tr>
+                                <td>스터디그룹></td>
+                                <td><%= value.roomstyle %></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><%= value.roomcon %></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <%}); %>
+                    
+                </div>
+            </div>
+        </article>
+        <article class = "area2">
+            <div class = "gesipan">
+                <p style="text-align: right;"><a href = "/Gesipan">자세히보기&nbsp;></a></p>
+                <P class = "Jemoc">스터디그룹</P>
+                <div class = "gesipan_in">
+                    <% msroom.forEach(function (value) { %>
+                    <div class = "room">
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <% if(value.roomcheck == "on"){%><img src = "img/lock.png" width="17" height="17"><%}
+                                        else{%><img src = "img/unlock.png" width="17" height="17"><%} %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><%= value.roomtitle %></td>
+                            </tr>
+                            <tr>
+                                <td width = "100px">2/3명</td>
+                                    <td><img src = "img/crown.png" width="15" height="15">&nbsp;<%= value.custid %></td>
+                            </tr>
+                            <tr>
+                                <td>스터디그룹></td>
+                                <td><%= value.roomstyle %></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><%= value.roomcon %></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+    </article>
+</section>
+<!--풋터-->
+<footer>
+    <div class="notice_box">
+        <p>공지사항</p>
+    </div>
+    <div class="aside_box">
+        <div class="area_user">
+        <div class="area_user_row">
+            <span class="text_bold-13">Creators</span>
+            <ul>
+            <li><p>크리에이터</p></li>
+            <li><p>스몰비즈니스</p></li>
+            </ul>
+        </div>
+        <div class="area_user_row">
+            <span class="text_bold-13">Partners</span>
+            <ul>
+            <li><p>비즈니스 광고</p></li>
+            <li><p>스토어 개설</p></li>
+            <li><p>지역업체 등록</p></li>
+            </ul>
+        </div>
+        <div class="area_user_row">
+            <span class="text_bold-13">Developers</span>
+            <ul>
+            <li><p>굿잡 개발자센터</p></li>
+            <li><p>오픈API</p></li>
+            <li><p>오픈소스</p></li>
+            <li><p>굿잡 D2</p></li>
+            <li><p>굿잡 D2SF</p></li>
+            <li><p>굿잡 랩스</p></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="bottom_box">
+        <ul>
+        <li><p>회사소개</p></li>
+        <li><p>인재채용</a></li>
+        <li><p>제휴제안</a></li>
+        <li><p>이용약관</a></li>
+        <li><p>개인정보처리방침</a></li>
+        <li><p>청소년보호정책</p></li>
+        <li><p>굿잡 정책</p></li>
+        <li><p>고객센터</p></li>
+        <li><p>&copy; 굿잡 Corp.</p></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

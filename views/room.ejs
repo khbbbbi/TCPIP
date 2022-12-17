@@ -1,0 +1,635 @@
+<!-- 방 - 입장하기 누르면 나오는 화면(?) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar exercise</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/77e29b57dd.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- defer란 무엇인가?!!!! -->
+    <base href="/">
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+/* 만들어놓고 필요한 곳에서 쓸 수 있다 */
+:root {
+    --text-color: #eee5e9;
+    /* --background-color: #567c32; */
+    --background-color: #33691E;
+    --accent-color: #689F38;
+  }
+  
+  /* 폰트는 최상위 컴포넌트에 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* .body {
+    margin: 0;
+  } */
+  
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  
+  .navbar {
+    border-radius: 10px;
+    position:sticky;
+    top:0;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 22px 12px;
+    background-color: var(--background-color);
+    width: 100%;
+  }
+  
+  .navbar-logo {
+    font-size: 30px;
+    /* color: var(--text-color); */
+  }
+  
+  .navbar-logo i {
+    color: var(--accent-color);
+    margin-left: 80px;
+  }
+  
+  /* menu */
+  
+  .navbar-menu {
+    display: flex;
+    padding-left: 0px;
+    list-style: none;
+    font-size: 24px;
+    font-family: "Black Han Sans", sans-serif;
+  }
+  .navbar-menu li {
+    padding: 15px 80px; /*내정보 삭제하고 수정할 부분*/
+    word-spacing: 50px;
+  }
+  
+  .navbar-menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 5px;
+  }
+  
+  /* icon */
+  .navbar-right {
+    justify-content: flex-end;
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    font-size: 12px;
+    color: var(--text-color);
+  }
+  
+  .navbar-right li {
+    font-size: larger;
+    padding: 8px 12px;
+  }
+  .link_text:hover{
+    text-decoration: underline;
+  }
+  .navbar-more {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 24px;
+    }
+  
+    .navbar-menu {
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+    }
+    ￼ .navbar-menu a {
+      display: block;
+    }
+  
+    .navbar-right {
+      display: none;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .navbar-more {
+      display: block;
+    }
+  
+    .navbar-menu.active,
+    .navbar-icon.active {
+      display: flex;
+    }
+}
+section {
+  font-family: 'Noto Sans KR', sans-serif;
+  padding : 60px;
+  padding-right: 120px;
+  background-color: #F1F8E9;
+}
+article {
+  margin-top: 10px;
+}
+
+.container{
+    border-radius: 90px;
+    background-color: #AED581;
+    height: 250px;
+    padding: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+.item:nth-child(1){
+    color: red;
+}
+.stopwatch{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+.stopwatch_time{
+    font-size: 60px;
+    justify-items: center;
+    text-align: center;
+}
+
+li{
+  list-style: none;
+}
+/* 푸터 */
+footer {
+  border-top: 1px solid lightgray;
+  padding: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: black; 
+  font-size: 12px;
+  position: relative;
+  clear: both;
+}
+.notice_box {
+  flex: 1;
+  display: flex;
+  justify-content: space-between; /* 양끝 정렬 */
+  align-items: center;
+  border-bottom: 1px solid #f1f3f6;
+}
+.notice_box a {
+  font-weight: bold;
+  color: black;
+}
+.aside_box {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f3f6;
+}
+.area_user {
+  flex: 4;
+  line-height: 2em; /* 줄간격 */
+}
+.area_user_row {
+  display: flex;
+}
+.area_user_row span {
+  flex: 1;
+}
+.area_user_row ul {
+  flex: 6;
+}
+.aur_title {
+  font-size: 13px;
+  font-weight: bold;
+}
+.area_user_row ul > li {
+  display: inline-block; /* li 수평정렬하는 방법 */
+  margin-left: 8px;
+}
+.area_col {
+  flex: 1;
+  display: flex;
+}
+.area_col .ac_content {
+  line-height: 20px;
+}
+.area_col .ac_img {
+  width: 60px;
+  height: 60px;
+}
+.bottom_box {
+  flex: 3;
+  padding-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+.bottom_box ul > li {
+  display: inline-block; /* 수평정렬 */
+  margin-left: 8px;
+}
+.bottom_box ul > li:last-child { /* 마지막 li요소 (Naver Corp.) 굵게 */
+  font-weight: bold;
+}
+/* 재사용 클래스 */
+.color_naver {
+  color: #03cf5d;
+}
+.text_bold-13 {
+  font-weight: bold;
+  font-size: 13px;
+}
+/*스톱워치*/
+
+.stopwatch-container{
+  background-color: #03cf5d;
+  width: 100%;
+}
+
+.start-btn,
+.stop-btn,
+.reset-btn{
+  background-color: #33691E;
+  width: 80px;
+  height: 50px;
+}
+
+        .stopwatch_list{
+            height: 300px;
+            border: 1px solid black;
+            background: #eee5e9;
+
+        }
+        #chatView {
+            height: 85%;
+            overflow-y: scroll;
+        }
+        #chatForm {
+            padding: 5px;
+            border-top: 1px solid black;
+            text-align: center;
+        }
+        #msg {
+            width: 80%;
+            height: 32px;
+            border-radius: 8px;
+        }
+        #send {
+            width: 16%;
+            height: 34px;
+            border-radius: 50px;
+            background: black;
+            color: white;
+        }
+        .msgLine {
+        margin: 15px;
+        }
+        .msgBox {
+        border: 1px solid black;
+        background: skyblue;
+        padding: 2px 5px;
+        border-radius: 10px;
+        }
+  </style>
+  <body>
+    <!-- container -->
+    <nav class="navbar">
+      <!-- logo -->
+      <div class="navbar-logo">
+        <!-- <i class="fas fa-frog"></i> -->
+        <i class="far fa-lemon"></i>
+        <!-- <div class="navbar-logo-name">FrogCoding</div> -->
+        <a href="/main">POTATO</a>
+      </div>
+      <!-- menu -->
+      <ul class="navbar-menu">
+        <li><a href="/Gesipan">스터디그룹</a></li>
+        <li><a href="/Create">방만들기</a></li>
+        <li><a href="/myroom">내가만든방</a></li>
+      </ul>
+      <!-- 이름, 로그아웃, 장바구니 -->
+      <ul class="navbar-right">
+        <% myinfo.forEach(function (value) { %>
+          <li><%= value.custname %>님</li>
+          <input type = "hidden" id = "custid" value = "<%= value.custid %>">
+          <input type = "hidden" id = "custname" value = "<%= value.custname %>">
+          <% }); %>
+          <li><a href="/logout" class="link_text">로그아웃</a></li>
+      </ul>
+      <a href="#" class="navbar-more">
+      <i class="fas fa-bars"></i></a>
+    </nav>
+	</div>
+  <section>
+    <% room.forEach(function (value){ %>
+    <h1 style="text-align:center; font-size: 30px;"><%= value.roomtitle %></h1>
+    <% }); %>
+    <article class="container">
+        <div class = "item">
+            <table>
+                <% myinfo.forEach(function (value) { %>
+                <tr><td><%= value.custname %></td></tr>
+                <% }); %>
+                <tr><td><img src ="img/me.png" width="90px" height="90px"></td></tr>
+            </table>
+        </div>
+            <table>
+                <tr><td><p id = "user1"></p></td></tr>
+                <tr><td><img src ="img/people.png" width="90px" height="90px"></td></tr>
+            </table>
+        </div>
+            <table>
+                <tr><td><p id = "user2"></p></td></tr>
+                <tr><td><img src ="img/people.png" width="90px" height="90px"></td></tr>
+            </table>
+        </div>
+            <table>
+                <tr><td><p id = "user3"></p></td></tr>
+                <tr><td><img src ="img/people.png" width="90px" height="90px"></td></tr>
+            </table>
+        </div>
+    </article>
+    <div class = "stopwatch">
+      <!-- <div class="stopwatch-container"> -->
+        <div class = "stopwatch_time">
+          <h1 class="display">00:00</h1>
+          <button class="start-btn" type="button">Start</button>
+          <button class="stop-btn" type="button">Stop</button>
+          <button class="reset-btn" type="button">Reset</button>
+        </div>
+        <div class = "stopwatch_list">
+          <div id="chatView">
+          </div>
+          <form id="chatForm" onsubmit="return false">
+              <input type="text" id="msg">
+              <input type="submit" id="send" value="전송">
+          </form>
+        </div>
+        <div style="text-align: center;">
+          <span >공부 시간 기록</span>
+            <ul class="timelap-list">
+            </ul>
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+          var socket = io();
+          
+          var chatView = document.getElementById('chatView');
+          var chatForm = document.getElementById('chatForm');
+          var custid = document.getElementById('custid').value;
+          var custname = document.getElementById('custname').value;
+          // var roomid = document.getElementById('roomid').value;
+
+          socket.emit('login', {
+            user: custname
+          });
+
+          chatForm.addEventListener('submit', function() {
+              var msg = $('#msg') ;
+              if (msg.val() == '') {
+                  return;
+              } else {
+                  socket.emit('SEND', custname + "님 : " + msg.val());   //타인
+
+                  var msgLine = $('<div class="msgLine">');
+                  var msgBox = $('<div class="me">');
+
+                  msgBox.append( msg.val()); //본인
+                  msgBox.css('display', 'inline-block');
+                  msgLine.css('text-align', 'right');
+                  msgLine.append(msgBox);
+
+                  $('#chatView').append(msgLine);
+  
+                  msg.val('');
+                  chatView.scrollTop = chatView.scrollHeight;
+              }
+          });
+          //접속 인원
+          socket.on('usercount', (count) => {
+            var userCounter = chatView;
+            userCounter.innerText = "현재 " + count + "명이 서버에 접속해있습니다.\n"
+          })
+
+          socket.on('user', function(data){
+            var user1= document.getElementById("user1");
+            // var user2= document.getElementById("user2");
+
+            // if(user1.innerText == ""){
+              user1.innerText = data;
+            // }else{
+            //   user2.innerText = data;
+            // }
+            // user2.innerText = data;
+          })
+
+          //접속한 사용자 불러오기
+          socket.on("login", function(data) {
+            // var user1= document.getElementById("user3");
+            // var user2= document.getElementById("user3");
+
+            chatView.append(data);
+          });
+
+          socket.on('SEND', function(msg) {
+          var msgLine = $('<div class="msgLine">');
+          var msgBox = $('<div class="msgBox">');
+                  
+          msgBox.append(msg);
+          msgBox.css('display', 'inline-block');
+   
+          msgLine.append(msgBox);
+          $('#chatView').append(msgLine);
+   
+          chatView.scrollTop = chatView.scrollHeight;
+          });
+          const display = document.querySelector('.display');
+        
+        let intervalId = 0,
+            minutes = 0,
+            seconds = 0,
+            displayArr = display.innerText.split(':');
+        
+
+        function startBtnHandler() {
+          const startBtn = document.querySelector('.start-btn');
+          var custid = document.getElementById('custid').value;
+        
+          startBtn.addEventListener('click', () =>{
+  
+              socket.emit('SEND', custname + "님 : " + "공부시작했습니다.");  //타인 입장
+  
+              var msgLine = $('<div class="msgLine">');
+              var msgBox = $('<div class="me">');
+  
+              msgBox.append("공부시작했습니다."); //내 화면
+              msgBox.css('display', 'inline-block');
+              msgLine.css('text-align', 'right');
+              msgLine.append(msgBox); 
+              $('#chatView').append(msgLine);
+              chatView.scrollTop = chatView.scrollHeight;
+  
+            intervalId = setInterval(() => {
+              if (!parseInt(displayArr[1])) {
+                seconds += 1;
+                if (seconds > 59) {
+                  seconds = 0;
+                  minutes += 1;
+                }
+                display.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${
+                  seconds < 10 ? `0${seconds}` : seconds}`;
+              } else {
+                seconds = parseInt(displayArr[1]);
+                seconds += 1;
+                if (seconds > 59) {
+                  seconds = 0;
+                  minutes += 1;
+                }
+                display.innerText = `${minutes < 10 ? `0${minutes}` : minutes}:${
+                  seconds < 10 ? `0${seconds}` : seconds}`;
+              }
+              
+            }, 1000)
+            
+        })
+        }
+        
+        function stopBtnHandler() {
+          const stopBtn = document.querySelector('.stop-btn');
+          stopBtn.addEventListener('click', () => {
+            socket.emit('SEND', custname + "님 : " + "잠시 쉬는시간...<br>");
+  
+              var msgLine = $('<div class="msgLine">');
+              var msgBox = $('<div class="me">');
+  
+              msgBox.append("잠시 쉬는시간...");
+              msgBox.css('display', 'inline-block');
+              msgLine.css('text-align', 'right');
+              msgLine.append(msgBox); 
+              $('#chatView').append(msgLine);
+              chatView.scrollTop = chatView.scrollHeight;
+              
+              const timelapList = document.querySelector('.timelap-list');
+              const li = document.createElement('li');
+              li.innerText = display.innerText;
+              timelapList.appendChild(li);
+              clearInterval(intervalId);
+          })
+          minutes = parseInt(displayArr[0]);
+          seconds = parseInt(displayArr[1]);
+        }
+        
+        function resetBtnHandler() {
+          const resetBtn = document.querySelector('.reset-btn'),
+                display = document.querySelector('.display');
+          resetBtn.addEventListener('click', () => {
+  
+            socket.emit('SEND', custname + "님 : " + "오늘의 공부 시간!<br>" + display.innerText);
+  
+              var msgLine = $('<div class="msgLine">');
+              var msgBox = $('<div class="me">');
+  
+              msgBox.append("오늘의 공부 시간!<br>" + display.innerText);
+              msgBox.css('display', 'inline-block');
+              msgLine.css('text-align', 'right');
+              msgLine.append(msgBox); 
+              $('#chatView').append(msgLine);
+              chatView.scrollTop = chatView.scrollHeight;
+            
+            display.innerText = `00:00`;
+            clearInterval(intervalId);
+            seconds = 0;
+            minutes = 0;
+          })
+        }
+        
+        function init() {
+          startBtnHandler();
+          stopBtnHandler();
+          resetBtnHandler();
+        }
+        
+        init();
+        
+      </script>
+        
+      </div>
+    </div>
+  </section>
+  <!--풋터-->
+  <footer>
+    <div class="notice_box">
+      <p>공지사항</p>
+    </div>
+    <div class="aside_box">
+      <div class="area_user">
+        <div class="area_user_row">
+          <span class="text_bold-13">Creators</span>
+          <ul>
+            <li><p>크리에이터</p></li>
+            <li><p>스몰비즈니스</p></li>
+          </ul>
+        </div>
+        <div class="area_user_row">
+          <span class="text_bold-13">Partners</span>
+          <ul>
+            <li><p>비즈니스 광고</p></li>
+            <li><p>스토어 개설</p></li>
+            <li><p>지역업체 등록</p></li>
+          </ul>
+        </div>
+        <div class="area_user_row">
+          <span class="text_bold-13">Developers</span>
+          <ul>
+            <li><p>굿잡 개발자센터</p></li>
+            <li><p>오픈API</p></li>
+            <li><p>오픈소스</p></li>
+            <li><p>굿잡 D2</p></li>
+            <li><p>굿잡 D2SF</p></li>
+            <li><p>굿잡 랩스</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_box">
+      <ul>
+        <li><p>회사소개</p></li>
+        <li><p>인재채용</a></li>
+        <li><p>제휴제안</a></li>
+        <li><p>이용약관</a></li>
+        <li><p>개인정보처리방침</a></li>
+        <li><p>청소년보호정책</p></li>
+        <li><p>굿잡 정책</p></li>
+        <li><p>고객센터</p></li>
+        <li><p>&copy; 굿잡 Corp.</p></li>
+      </ul>
+    </div>
+  </footer>
+  </body>
+</html>
