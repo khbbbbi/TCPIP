@@ -9,7 +9,7 @@
 <b><화면 구성></b><br>
 ![image](https://user-images.githubusercontent.com/102509150/208232871-9995076c-05fb-49c6-a3e4-068a00a0dbd4.png)
 <br>
-<b><시스템 구성도></b>
+<b><DB 설계></b>
 ![image](https://user-images.githubusercontent.com/102509150/208234577-e29807eb-a63f-4d96-8fdf-d6415a63afbb.png)
 <br>
 <b><구현 기능></b>
